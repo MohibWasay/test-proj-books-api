@@ -14,10 +14,10 @@ module.exports.update = (event, context, callback) => {
       id: event.pathParameters.id,
     },
     ExpressionAttributeNames: {
-      '#book': 'text',
-      '#publisher': 'text',
-      '#author': 'text',
-      '#publishedOn': 'text',
+      '#book': 'book',
+      '#publisher': 'publisher',
+      '#author': 'author',
+      '#publishedOn': 'publishedOn',
     },
     ExpressionAttributeValues: {
       ':book': data.book,
@@ -37,7 +37,7 @@ module.exports.update = (event, context, callback) => {
       callback(null, {
         statusCode: error.statusCode || 501,
         headers: { 'Content-Type': 'text/plain' },
-        body: 'Couldn\'t fetch the todo item.',
+        body: 'Couldn\'t update the todo item.',
       });
       return;
     }
