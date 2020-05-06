@@ -37,7 +37,7 @@ module.exports.update = (event, context, callback) => {
       callback(null, {
         statusCode: error.statusCode || 501,
         headers: { 'Content-Type': 'text/plain' },
-        body: 'Couldn\'t update the todo item.',
+        body: 'Couldn\'t update the book item.',
       });
       return;
     }
